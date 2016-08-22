@@ -1,0 +1,23 @@
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mInitial source changes: [0m
+[0m[[0mdebug[0m] [0m	removed:Set()[0m
+[0m[[0mdebug[0m] [0m	added: Set(C:\Users\bishopja\Documents\code\HelloWorld\src\main\scala\Hello.java)[0m
+[0m[[0mdebug[0m] [0m	modified: Set()[0m
+[0m[[0mdebug[0m] [0mRemoved products: Set()[0m
+[0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(C:\Users\bishopja\Documents\code\HelloWorld\src\main\scala\Hello.java)[0m
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m	product: Set()[0m
+[0m[[0mdebug[0m] [0m	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\Users\bishopja\Documents\code\HelloWorld\src\main\scala\Hello.java)[0m
+[0m[[0minfo[0m] [0mCompiling 1 Java source to C:\Users\bishopja\Documents\code\HelloWorld\target\scala-2.11\classes...[0m
+[0m[[0mdebug[0m] [0mAttempting to call com.sun.tools.javac.api.JavacTool@b3ecb directly...[0m
+[0m[[31merror[0m] [0mC:\Users\bishopja\Documents\code\HelloWorld\src\main\scala\Hello.java:5: <identifier> expected[0m
+[0m[[31merror[0m] [0mC:\Users\bishopja\Documents\code\HelloWorld\src\main\scala\Hello.java:5: ';' expected[0m
+[0m[[31merror[0m] [0mC:\Users\bishopja\Documents\code\HelloWorld\src\main\scala\Hello.java:5: illegal start of type[0m
+[0m[[31merror[0m] [0mC:\Users\bishopja\Documents\code\HelloWorld\src\main\scala\Hello.java:5: <identifier> expected[0m
+[0m[[31merror[0m] [0mC:\Users\bishopja\Documents\code\HelloWorld\src\main\scala\Hello.java:5: ';' expected[0m
+[0m[[31merror[0m] [0m(compile:[31mcompileIncremental[0m) javac returned nonzero exit code[0m

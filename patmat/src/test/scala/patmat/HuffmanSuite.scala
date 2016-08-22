@@ -1,0 +1,93 @@
+package patmat
+
+import org.scalatest.FunSuite
+
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
+
+import patmat.Huffman._
+
+@RunWith(classOf[JUnitRunner])
+class HuffmanSuite extends FunSuite {
+	trait TestTrees {
+		val t1 = Fork(Leaf('a',2), Leaf('b',3), List('a','b'), 5)
+		val t2 = Fork(Fork(Leaf('a',2), Leaf('b',3), List('a','b'), 5), Leaf('d',4), List('a','b','d'), 9)
+    val t3 = Leaf('a',1)
+    val t4 = Nil
+	}
+
+
+  test("weight of a larger tree") {
+    new TestTrees {
+      assert(weight(t1) === 5)
+    }
+  }
+
+
+  test("chars of a larger tree") {
+    new TestTrees {
+      assert(chars(t2) === List('a','b','d'))
+    }
+  }
+
+
+  test("string2chars(\"hello, world\")") {
+    assert(string2Chars("hello, world") === List('h', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd'))
+  }
+
+
+  test("makeOrderedLeafList for some frequency table") {
+    assert(makeOrderedLeafList(List(('t', 2), ('e', 1), ('x', 3))) === List(Leaf('e',1), Leaf('t',2), Leaf('x',3)))
+  }
+
+  test("makeOrderedLeafList for complex frequency table") {
+    assert(makeOrderedLeafList(List(('t', 2), ('a',4), ('e', 1), ('x', 3))) === List(Leaf('e',1), Leaf('t',2), Leaf('x',3), Leaf('a',4)))
+  }
+
+  test("makeOrderedLeafList for even more complex frequency table") {
+    assert(makeOrderedLeafList(List(('r',7), ('t', 2), ('a',4), ('e', 1), ('x', 3), ('s',1))) === List(Leaf('e',1), Leaf('s',1), Leaf('t',2), Leaf('x',3), Leaf('a',4), Leaf('r',7)))
+  }
+
+  test("combine of some leaf list") {
+    val leaflist = List(Leaf('e', 1), Leaf('t', 2), Leaf('x', 4))
+    assert(combine(leaflist) === List(Fork(Leaf('e',1),Leaf('t',2),List('e', 't'),3), Leaf('x',4)))
+  }
+
+
+  test("decode and encode a very short text should be identity") {
+    new TestTrees {
+      assert(decode(t1, encode(t1)("ab".toList)) === "ab".toList)
+    }
+  }
+
+  test("times returns List(('a', 1)) for single char 'a'") {
+    new TestTrees {
+      assert(times("a".toList) === List(('a',1)))
+    }
+  }
+
+  test("times returns List(('a', 3)) for 3-char string") {
+    new TestTrees {
+      assert(times("aaa".toList) === List(('a',3)))
+    }
+  }
+
+  test("times returns List(('a', 3),('b',2)) for 'aaabb'") {
+    new TestTrees {
+      assert(times("aaabb".toList).equals(List(('a',3),('b',2))))
+    }
+  }
+
+  test("times returns List(('b',2),('a', 3)) for 'bbaaa'") {
+    new TestTrees {
+      assert(times("bbaaa".toList).equals(List(('b',2),('a',3))))
+    }
+  }
+
+  test("times returns Nil for empty list") {
+    new TestTrees {
+      assert(times(Nil) === Nil)
+    }
+  }
+
+}
